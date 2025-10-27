@@ -10,13 +10,15 @@
   <div id="display">Waiting...</div>
 
   <script>
-    const display = document.getElementById("display");
-    const ws = new WebSocket(`ws://${location.host}`);
+  const display = document.getElementById("display");
+  const protocol = location.protocol === "https:" ? "wss" : "ws";
+  const ws = new WebSocket(`${protocol}://${location.host}`);
 
-    ws.onmessage = (event) => {
-      const { signal } = JSON.parse(event.data);
-      display.textContent = signal || "No signal yet";
-    };
-  </script>
+  ws.onmessage = (event) => {
+    const { signal } = JSON.parse(event.data);
+    display.textContent = signal || "No signal yet";
+  };
+</script>
+
 </body>
 </html>
