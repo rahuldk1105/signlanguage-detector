@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Server Control</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>Server Control Panel</h1>
+  <div id="buttons"></div>
+
+  <script>
+    const container = document.getElementById("buttons");
+    const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+    letters.forEach(letter => {
+      const btn = document.createElement("button");
+      btn.textContent = letter;
+      btn.onclick = () => fetch(`/send/${letter}`);
+      container.appendChild(btn);
+    });
+  </script>
+</body>
+</html>

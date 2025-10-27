@@ -1,0 +1,13 @@
+{
+  "name": "fake-device",
+  "version": "1.0.0",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.0",
+    "ws": "^8.15.0"
+  }
+}

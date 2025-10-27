@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Client Display</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>Client Display</h1>
+  <div id="display">Waiting...</div>
+
+  <script>
+    const display = document.getElementById("display");
+    const ws = new WebSocket(`ws://${location.host}`);
+
+    ws.onmessage = (event) => {
+      const { signal } = JSON.parse(event.data);
+      display.textContent = signal || "No signal yet";
+    };
+  </script>
+</body>
+</html>
